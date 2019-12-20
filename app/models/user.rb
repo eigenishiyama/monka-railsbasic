@@ -3,4 +3,7 @@ class User < ApplicationRecord
     validates :phone_number,presence:true
 
     has_one_attached :photo
+    def thumbnail
+        photo.variant(resize: '100x100')
+    end
 end
